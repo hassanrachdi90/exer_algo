@@ -89,4 +89,5 @@ ALGORITHM vectors
 			ELSE  
 				WRITE(" NOT ORTHOGONAL VECTORS")
 			END IF
+			Return ps ;
 	END
