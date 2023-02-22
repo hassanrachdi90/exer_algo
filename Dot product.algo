@@ -1,0 +1,92 @@
+Exercice 1	
+algo_somme_nombre(set1,set2)
+VAR 
+sum=0
+i,j=INTEGER
+set1:array_table[4]
+set2:array_table[5]
+trouve=false 
+BEGIN
+i,j=0
+set1={3,1,7,9},set2={2,4,2,9,3}
+FOR i FROM set1.length
+FOR j FROM set2.length
+IF (set1[i]=set2[j]) THEN
+	trouve=true
+END_IF
+IF (!trouve)THEN
+sum+=set1[i]
+END_IF
+END_FOR
+FOR i FROM set2.length
+FOR j FROM set1.length
+IF (set2[i]=set1[j]) THEN
+	trouve=true
+END_IF
+IF (!trouve)THEN
+sum+=set2[i]
+END_IF
+END_FOR
+
+
+Exercice 2 
+1 - 
+PROCEDURE produit_scalaire(ps: integer, v1: array_of integer, v2: array_of integer)
+VAR
+   i: INTEGER;
+   ps = 0;
+BEGIN
+	FOR i FROM 0 TO v1.length-1 STEP 1  DO
+   	ps += v1[i]*v2[i]
+	END FOR
+END
+
+
+2 - ALGORITHM vectors
+	VAR:
+		v1: ARRAY_OF INTEGER;
+		v2: ARRAY_OF INTEGER;
+		i,n;ps : INTEGER
+	BEGIN:
+		n = READ()
+		FOR i FROM 0 to n STEP 1 DO
+			read_array(v1)
+			read_array(v2)
+			produit_scalaire(ps, v1, v2)
+			IF ps = 0 THEN
+				WRITE("ORTHOGONAL VECTORS")
+			ELSE 
+				WRITE(" NOT ORTHOGONAL VECTORS")
+			END IF
+	END
+		  	
+
+
+3 - FUNCTION produit_scalaire(v1: array_of integer, v2: array_of integer): integer
+VAR
+   ps: integer;
+BEGIN
+	ps= 0:
+	FOR i FROM 0 TO v1.length-1 STEP 1  DO
+    	ps += v1[i]*v2[i]
+	END FOR
+	RETURN ps;
+END
+
+ALGORITHM vectors
+	VAR:
+		v1: ARRAY_OF INTEGER;
+		v2: ARRAY_OF INTEGER;
+		i,n;ps : INTEGER
+	BEGIN:
+		n := read_size();
+		FOR i FROM 0 to n STEP 1 DO
+			read_array(v1)
+			read_array(v2)
+			ps = produit_scalaire(v1, v2)
+			IF ps = 0 THEN
+				WRITE("ORTHOGONAL VECTORS")
+			ELSE  
+				WRITE(" NOT ORTHOGONAL VECTORS")
+			END IF
+	END
